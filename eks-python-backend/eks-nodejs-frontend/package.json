@@ -1,0 +1,13 @@
+
+{
+  "name": "eks-nodejs-frontend",
+  "version": "1.0.0",
+  "description": "Node.js frontend for EKS deployment",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

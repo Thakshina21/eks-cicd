@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-frontend
+  template:
+    metadata:
+      labels:
+        app: nodejs-frontend
+    spec:
+      containers:
+        - name: nodejs-frontend
+          image: 197285016566.dkr.ecr.ap-south-1.amazonaws.com/eks-nodejs-frontend:v1
+          ports:
+            - containerPort: 3000

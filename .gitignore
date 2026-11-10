@@ -1,0 +1,28 @@
+# Node.js dependencies
+**/node_modules/
+
+# Windows Node.js runtime
+**/node-v*-win-x64/
+
+# Backup files
+**/*-backup.js
+
+# Environment and secret files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials
+.aws/
+
+# Temporary files
+*.log
+*.tmp
+
+# Original project archive
+*.zip
+
+# Operating system files
+.DS_Store
+Thumbs.db

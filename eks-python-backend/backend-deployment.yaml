@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-backend
+  template:
+    metadata:
+      labels:
+        app: python-backend
+    spec:
+      containers:
+        - name: python-backend
+          image: 197285016566.dkr.ecr.ap-south-1.amazonaws.com/eks-python-backend:v1
+          ports:
+            - containerPort: 5000
