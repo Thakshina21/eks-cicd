@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: nodejs-frontend
-          image: 197285016566.dkr.ecr.ap-south-1.amazonaws.com/eks-nodejs-frontend:v1
+          image: 197285016566.dkr.ecr.ap-south-1.amazonaws.com/eks-nodejs-frontend:45fdeb27dcc88a4880fd238316b363cb89b6dd1c
           ports:
             - containerPort: 3000
