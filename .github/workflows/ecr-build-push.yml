@@ -8,7 +8,7 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
 
 env:
   AWS_REGION: ${{ vars.AWS_REGION }}
@@ -49,3 +49,22 @@ jobs:
           context: ./eks-python-backend/eks-nodejs-frontend
           push: true
           tags: ${{ steps.login-ecr.outputs.registry }}/eks-nodejs-frontend:${{ github.sha }}
+
+      - name: Update Kubernetes image tags
+        run: |
+          sed -i "s|image: .*eks-python-backend:.*|image: ${{ steps.login-ecr.outputs.registry }}/eks-python-backend:${{ github.sha }}|" eks-python-backend/backend-deployment.yaml
+
+          sed -i "s|image: .*eks-nodejs-frontend:.*|image: ${{ steps.login-ecr.outputs.registry }}/eks-nodejs-frontend:${{ github.sha }}|" eks-python-backend/eks-nodejs-frontend/frontend-deployment.yaml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add eks-python-backend/backend-deployment.yaml
+          git add eks-python-backend/eks-nodejs-frontend/frontend-deployment.yaml
+
+          if git diff --cached --quiet; then
+            echo "No Kubernetes manifest changes detected."
+          else
+            git commit -m "Update Kubernetes image tags to ${{ github.sha }}"
+            git push origin HEAD:main
+          fi
