@@ -1,5 +1,3 @@
-
-
 const express = require("express");
 
 const app = express();
@@ -88,6 +86,8 @@ app.get("/", (req, res) => {
 
                 <p class="subtitle">
                     Application deployed on Amazon Elastic Kubernetes Service (EKS).
+                    <br><br>
+                    CI/CD automated using GitHub Actions, Amazon ECR, and Argo CD.
                 </p>
 
                 <div class="cards">
