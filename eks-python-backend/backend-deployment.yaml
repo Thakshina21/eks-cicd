@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: python-backend
-          image: 197285016566.dkr.ecr.ap-south-1.amazonaws.com/eks-python-backend:96983122316b89c518f7790af445d24832cb78fd
+          image: 197285016566.dkr.ecr.ap-south-1.amazonaws.com/eks-python-backend:9cb5f4fcf4c85092b80dcd587f2483f1caa762b2
           ports:
             - containerPort: 5000
